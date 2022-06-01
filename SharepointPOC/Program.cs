@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using SharepointPOC;
 
@@ -23,6 +23,7 @@ namespace SharepointTests
 
             string localLocation = Directory.GetCurrentDirectory().Replace("bin\\Debug", "downloads");
             string fileToUpload = Directory.GetCurrentDirectory() + "\\SharePointPOC.exe";
+            string newFolder = "test-folder";
 
             SharePointCSOMAdapter sharepoint = new SharePointCSOMAdapter(host, appId, clientSecret);
 
@@ -30,7 +31,8 @@ namespace SharepointTests
 1 - List directory contents
 2 - Download single file
 3 - Download all files from directory
-4 - Upload file");
+4 - Upload file
+5 - Add Remote Folder");
 
             string action = Console.ReadLine();
 
@@ -46,6 +48,9 @@ namespace SharepointTests
                     break;
                 case "4":
                     sharepoint.UploadFile(libraryName, fileToUpload);
+                    break;
+                case "5":
+                    sharepoint.AddFolder(libraryName, newFolder);
                     break;
                 default:
                     Environment.Exit(0);

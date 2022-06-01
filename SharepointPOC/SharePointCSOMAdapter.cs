@@ -119,5 +119,21 @@ namespace SharepointPOC
                 ctx.ExecuteQuery();
             }
         }
+        public void AddFolder(string parentDirectory, string newDirectory)
+        {
+            using (ClientContext ctx = new AuthenticationManager().GetACSAppOnlyContext(siteURL, appId, clientSecret))
+            {
+                Web web = ctx.Web;
+                ctx.Load(web);
+
+
+                Folder remoteDirectory = ctx.Web.GetFolderByServerRelativeUrl(parentDirectory);
+
+                remoteDirectory.AddSubFolder(newDirectory, null);
+                
+                ctx.Load(remoteDirectory);
+                ctx.ExecuteQuery();
+            }
+        }
     }
 }
