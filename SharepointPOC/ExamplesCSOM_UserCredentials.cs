@@ -1,4 +1,4 @@
-﻿using Microsoft.SharePoint.Client;
+﻿//using Microsoft.SharePoint.Client;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -48,26 +48,26 @@ namespace SharepointPOC
                 outputStream.Close();
             }
         }
-        public void Download(string siteURL, string email, string password)
-        {
-            //set credential of SharePoint online
-            SecureString secureString = new SecureString();
-            foreach (char c in password.ToCharArray())
-            {
-                secureString.AppendChar(c);
-            }
-            ICredentials credentials = new SharePointOnlineCredentials(email, secureString);
+        //public void Download(string siteURL, string email, string password)
+        //{
+        //    //set credential of SharePoint online
+        //    SecureString secureString = new SecureString();
+        //    foreach (char c in password.ToCharArray())
+        //    {
+        //        secureString.AppendChar(c);
+        //    }
+        //    ICredentials credentials = new SharePointOnlineCredentials(email, secureString);
 
-            //set credential of SharePoint 2013(On-Premises)
-            //string userName = "Administrator";
-            //string password = "xxxxxxx";
-            //string domain = "CONTOSO";
-            //ICredentials credentials = new NetworkCredential(userName, password, domain);
+        //    //set credential of SharePoint 2013(On-Premises)
+        //    //string userName = "Administrator";
+        //    //string password = "xxxxxxx";
+        //    //string domain = "CONTOSO";
+        //    //ICredentials credentials = new NetworkCredential(userName, password, domain);
 
-            DownloadFileViaRestAPI(siteURL, credentials, "MyDocuments", "test.txt", "c:\\Users\\mhuziuk");
+        //    DownloadFileViaRestAPI(siteURL, credentials, "MyDocuments", "test.txt", "c:\\Users\\mhuziuk");
 
-            Console.WriteLine("success");
-            Console.ReadLine();
-        }
+        //    Console.WriteLine("success");
+        //    Console.ReadLine();
+        //}
     }
 }
