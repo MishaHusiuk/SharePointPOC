@@ -9,14 +9,14 @@ using PnP.Framework;
 // https://stackoverflow.com/questions/45674435/401-unauthorized-exception-while-downloading-file-from-sharepoint
 // https://sharepoint.stackexchange.com/a/219148
 
-namespace SharepointPOC
+namespace SharepointCSOM
 {
-    internal class SharePointCSOMAdapter
+    public class SharePointAdapter
     {
         private readonly string siteURL;
         private readonly string appId;
         private readonly string clientSecret;
-        public SharePointCSOMAdapter(string siteURL, string appId, string clientSecret)
+        public SharePointAdapter(string siteURL, string appId, string clientSecret)
         {
             this.siteURL = siteURL;
             this.appId = appId;
@@ -50,14 +50,14 @@ namespace SharepointPOC
                 ctx.ExecuteQuery();
 
                 var file = ctx.Web.GetFileByServerRelativeUrl(fileRelativeUrl);
-                
+
                 ctx.Load(file);
                 ctx.ExecuteQuery();
                 ClientResult<Stream> streamResult = file.OpenBinaryStream();
                 ctx.ExecuteQuery();
-                
-                var filePath =  $"{destinationLocation}\\{file.Name}";
-               
+
+                var filePath = $"{destinationLocation}\\{file.Name}";
+
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     streamResult.Value.CopyTo(fileStream);
@@ -94,7 +94,7 @@ namespace SharepointPOC
         {
             if (!System.IO.File.Exists(localFileLocation))
                 throw new FileNotFoundException("File not found.", localFileLocation);
-            
+
             // Prepare to upload 
             string fileName = Path.GetFileName(localFileLocation);
             FileStream fileStream = System.IO.File.OpenRead(localFileLocation);
@@ -130,7 +130,7 @@ namespace SharepointPOC
                 Folder remoteDirectory = ctx.Web.GetFolderByServerRelativeUrl(parentDirectory);
 
                 remoteDirectory.AddSubFolder(newDirectory, null);
-                
+
                 ctx.Load(remoteDirectory);
                 ctx.ExecuteQuery();
             }

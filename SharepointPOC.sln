@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharepointPOC", "SharepointPOC\SharepointPOC.csproj", "{0D089616-4F16-4EA1-B211-FC5C6B9E5199}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharepointCSOM", "SharepointCSOM\SharepointCSOM.csproj", "{57CE3CAD-819C-4F93-8F24-07B795B01A7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0D089616-4F16-4EA1-B211-FC5C6B9E5199}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D089616-4F16-4EA1-B211-FC5C6B9E5199}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D089616-4F16-4EA1-B211-FC5C6B9E5199}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57CE3CAD-819C-4F93-8F24-07B795B01A7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57CE3CAD-819C-4F93-8F24-07B795B01A7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57CE3CAD-819C-4F93-8F24-07B795B01A7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57CE3CAD-819C-4F93-8F24-07B795B01A7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

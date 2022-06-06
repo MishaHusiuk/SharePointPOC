@@ -1,6 +1,6 @@
 using System;
 using System.IO;
-using SharepointPOC;
+using SharepointCSOM;
 
 namespace SharepointTests
 {
@@ -15,17 +15,17 @@ namespace SharepointTests
 
             string siteName = "<your site name>";
             string libraryName = "MyDocuments";
-            string testFileName = "text.txt";
+            string testFileName = "test.txt";
             #endregion
 
             string host = $"https://{domain}.sharepoint.com/sites/{siteName}";
-            string relativeFilePath = $"/sites/{siteName}/{libraryName}/t{testFileName}";
+            string relativeFilePath = $"/sites/{siteName}/{libraryName}/{testFileName}";
 
             string localLocation = Directory.GetCurrentDirectory().Replace("bin\\Debug", "downloads");
             string fileToUpload = Directory.GetCurrentDirectory() + "\\SharePointPOC.exe";
             string newFolder = "test-folder";
 
-            SharePointCSOMAdapter sharepoint = new SharePointCSOMAdapter(host, appId, clientSecret);
+            SharePointAdapter sharepoint = new SharePointAdapter(host, appId, clientSecret);
 
             Console.WriteLine(@"Select action:
 1 - List directory contents
