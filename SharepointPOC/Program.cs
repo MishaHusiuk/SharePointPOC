@@ -1,8 +1,8 @@
 using System;
 using System.IO;
-using SharepointCSOM;
+using SharePointCSOM;
 
-namespace SharepointTests
+namespace SharePointTests
 {
     internal class Program
     {

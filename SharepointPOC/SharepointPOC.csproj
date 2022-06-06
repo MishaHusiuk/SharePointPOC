@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{0D089616-4F16-4EA1-B211-FC5C6B9E5199}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SharepointPOC</RootNamespace>
-    <AssemblyName>SharepointPOC</AssemblyName>
+    <RootNamespace>SharePointPOC</RootNamespace>
+    <AssemblyName>SharePointPOC</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -245,9 +245,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SharepointCSOM\SharepointCSOM.csproj">
+    <ProjectReference Include="..\SharepointCSOM\SharePointCSOM.csproj">
       <Project>{57ce3cad-819c-4f93-8f24-07b795b01a7f}</Project>
-      <Name>SharepointCSOM</Name>
+      <Name>SharePointCSOM</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

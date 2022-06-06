@@ -9,7 +9,7 @@ using PnP.Framework;
 // https://stackoverflow.com/questions/45674435/401-unauthorized-exception-while-downloading-file-from-sharepoint
 // https://sharepoint.stackexchange.com/a/219148
 
-namespace SharepointCSOM
+namespace SharePointCSOM
 {
     public class SharePointAdapter
     {
