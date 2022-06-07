@@ -64,6 +64,44 @@ namespace SharePointCSOM
                 }
             }
         }
+
+        public void DownloadSingleFile(string fileRelativeUrl, Stream targetStream)
+        {
+            using (ClientContext ctx = new AuthenticationManager().GetACSAppOnlyContext(siteURL, appId, clientSecret))
+            {
+                Web web = ctx.Web;
+                ctx.Load(web);
+
+                ctx.ExecuteQuery();
+
+                var file = ctx.Web.GetFileByServerRelativeUrl(fileRelativeUrl);
+
+                ctx.Load(file);
+                ctx.ExecuteQuery();
+                ClientResult<Stream> streamResult = file.OpenBinaryStream();
+                ctx.ExecuteQuery();
+
+                streamResult.Value.CopyTo(targetStream);
+            }
+        }
+
+        public long GetFileLength(string fileRelativeUrl) 
+        {
+            using (ClientContext ctx = new AuthenticationManager().GetACSAppOnlyContext(siteURL, appId, clientSecret))
+            {
+                Web web = ctx.Web;
+                ctx.Load(web);
+
+                ctx.ExecuteQuery();
+
+                var file = ctx.Web.GetFileByServerRelativeUrl(fileRelativeUrl);
+
+                ctx.Load(file);
+                ctx.ExecuteQuery();
+                return file.Length;
+            }
+        }
+
         public void DownloadAllFilesFromDirectory(string remoteDirectory, string destinationLocation)
         {
             using (ClientContext ctx = new AuthenticationManager().GetACSAppOnlyContext(siteURL, appId, clientSecret))
