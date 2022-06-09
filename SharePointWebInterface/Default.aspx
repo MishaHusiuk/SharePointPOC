@@ -9,13 +9,22 @@
     </div>
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <h2>Sharepoint POC</h2>
             <p>
                 Download the file
             </p>
             <p>
                 <asp:Button runat="server" ID="btnDownload" OnClick="btnDownload_Click" Text="Download Sample File"/>
+            </p>
+        </div>
+         <div class="col-md-6">
+            <h2>Trigger long-running task and upload a file</h2>
+            <p>
+                Upload file
+            </p>
+            <p>
+                <asp:Button runat="server" ID="btnLLTUpload" OnClick="btnLongRunningTaskAndUpload_Click" Text="Upload Sample File"/>
             </p>
         </div>
     </div>
